@@ -117,7 +117,7 @@ body {
 <!-- GAME SCREEN -->
 <div id="gameScreen">
   <button class="closeBtn" onclick="closeGame()">Kapat</button>
-  <iframe id="gameFrame"></iframe>
+  <iframe id="gameFrame" allowfullscreen></iframe>
 </div>
 
 <div class="footer">© 2026 Bravo Games</div>
@@ -148,8 +148,40 @@ const games = [
   {
   "name": "🎯 Traxel",
   "img": "https://ibb.co/KpG90v8n.jpg",
-  "url": "oyunlar/traxellisbest.html",
+  "url": "oyunlar/traxell.html",
   "desc": "Arkadaşlarınla grup kur, takımlarını oluştur ve 3D çevrimiçi savaş arenasında mücadele et!"
+  },
+
+  /* ===== GameDistribution oyunları ===== */
+  {
+    "name": "🏎️ Hyper Araba Akrobasi",
+    "img": "https://img.gamedistribution.com/93407da92fe043e7b4b70fcc919ed8a4-512x512.jpg",
+    "url": "https://html5.gamedistribution.com/93407da92fe043e7b4b70fcc919ed8a4/",
+    "gd": true
+  },
+  {
+    "name": "🔫 SWAT Ops",
+    "img": "https://img.gamedistribution.com/a5ae3da07c064782b9879d42d0e97a48-512x512.jpg",
+    "url": "https://html5.gamedistribution.com/a5ae3da07c064782b9879d42d0e97a48/",
+    "gd": true
+  },
+  {
+    "name": "⚔️ Sekmeli Şövalye",
+    "img": "https://img.gamedistribution.com/b657369ed48a497494f0e5474b863b98-512x512.jpg",
+    "url": "https://html5.gamedistribution.com/b657369ed48a497494f0e5474b863b98/",
+    "gd": true
+  },
+  {
+    "name": "⚽ Frikik Savaşı",
+    "img": "https://img.gamedistribution.com/53d787c1516d4d9283748aba33ab5ddc-512x512.jpg",
+    "url": "https://html5.gamedistribution.com/53d787c1516d4d9283748aba33ab5ddc/",
+    "gd": true
+  },
+  {
+    "name": "🎢 Raylarda Yarış",
+    "img": "https://img.gamedistribution.com/6322e360cffc45f188d111985753b274-512x512.jpg",
+    "url": "https://html5.gamedistribution.com/6322e360cffc45f188d111985753b274/",
+    "gd": true
   }
  ];
 
@@ -167,7 +199,7 @@ function renderGames(filter="") {
         <img src="${game.img}">
         <h3>${game.name}</h3>
       `;
-      card.onclick = () => openGame(game.url);
+      card.onclick = () => openGame(game.gd ? game.url + "?gd_sdk_referrer_url=" + encodeURIComponent(location.href) : game.url);
       gameList.appendChild(card);
     });
 }
